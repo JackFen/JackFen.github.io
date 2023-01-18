@@ -78,7 +78,7 @@
 
         <div class="section-title">
           <h2>关于</h2>
-          <p>本人目前计算机科学与技术专业本科在读，主攻java后端和网站开发，但也熟悉C语言，C++,python，HTML等语言。</p>
+          <p>本人目前计算机科学与技术专业本科在读，主攻网站全栈开发，主要使用java，但也熟悉C语言，C++,python，HTML等语言。</p>
         </div>
 
         <div class="row">
@@ -215,9 +215,8 @@
         </div>
 
         <div class="row portfolio-container" data-aos="fade-up" data-aos-delay="100">
-
-          <div :class="'col-lg-4 col-md-6 portfolio-item border border-dark border-3 filter-'+item.type" style="border-radius: 15px;" v-for="item in datalist" >
-            <div class="portfolio-wrap">
+          <div :class="'col-lg-4 col-md-6 portfolio-item filter-'+item.type" v-for="item in datalist" >
+            <div class="portfolio-wrap border border-dark border-3 shadow-lg" style="border-radius: 15px;">
               <h3 class="text-info">{{item.title}}</h3>
               <br>
               <p class="text-muted">{{item.info}}</p>
@@ -348,6 +347,12 @@
           "tech":"html、bootstrap",
           "link":"https://github.com/JackFen/bootstrap_study",
           "type":"knowledge"
+         },
+         {"title":"某某CRM系统",
+          "info":"该项目采用springBoot+vue架构，其包含使用token进行登录验证功能、用户管理、角色管理、菜单管理、系统日志",
+          "tech":"springBoot、vue、Mysql、jwt",
+          "link":"https://github.com/JackFen/CRM_system",
+          "type":"project"
          },
         ]
       }
