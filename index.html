@@ -229,11 +229,11 @@
 
         <div class="row portfolio-container" data-aos="fade-up" data-aos-delay="100">
           <div :class="'col-lg-4 col-md-6 portfolio-item filter-'+item.type" v-for="item in datalist">
-            <div class="portfolio-wrap border border-dark border-3 shadow-lg" style="border-radius: 15px;">
+            <div class="portfolio-wrap border border-dark border-3 shadow-lg bg-body-secondary" style="border-radius: 15px;">
               <h3 class="text-info">{{item.title}}</h3>
               <br>
               <p class="text-muted">{{item.info}}</p>
-              <div class="text-muted">主要所用技术：<span class="text-info">{{item.tech}}</span></div>
+              <div class="text-secondary-emphasis">主要所用技术：<span class="text-info">{{item.tech}}</span></div>
               <div class="portfolio-links">
                 <a :href=item.link title="More Details" style="width: 100%;"><i class="bx bx-link"
                     style="width: auto;"></i></a>
