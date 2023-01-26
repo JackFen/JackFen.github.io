@@ -44,7 +44,7 @@
         <img src="assets/img/head.jpg" alt="" class="img-fluid rounded-circle">
         <h1 class="text-light"><a href="index.html">Jack Feng</a></h1>
         <!-- <div class="social-links mt-3 text-center"> -->
-          <!-- <a href="#" class="twitter"><i class="bx bxl-twitter"></i></a>
+        <!-- <a href="#" class="twitter"><i class="bx bxl-twitter"></i></a>
           <a href="#" class="facebook"><i class="bx bxl-facebook"></i></a>
           <a href="#" class="instagram"><i class="bx bxl-instagram"></i></a>
           <a href="#" class="google-plus"><i class="bx bxl-skype"></i></a>
@@ -229,7 +229,8 @@
 
         <div class="row portfolio-container" data-aos="fade-up" data-aos-delay="100">
           <div :class="'col-lg-4 col-md-6 portfolio-item filter-'+item.type" v-for="item in datalist">
-            <div class="portfolio-wrap border border-dark border-3 shadow-lg bg-body-secondary" style="border-radius: 15px;">
+            <div class="portfolio-wrap border border-dark border-3 shadow-lg bg-body-secondary"
+              style="border-radius: 15px;">
               <h3 class="text-info">{{item.title}}</h3>
               <br>
               <p class="text-muted">{{item.info}}</p>
@@ -278,8 +279,8 @@
   <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
   <script src="assets/vendor/typed.js/typed.min.js"></script>
   <script src="assets/vendor/waypoints/noframework.waypoints.js"></script>
-  <!-- 生产环境版本，优化了尺寸和速度 -->
-  <script src="assets/vendor/vue/vue.min.js"></script>
+  <!-- 开发环境版本，使用生产环境版本会产生跨域问题，暂未解决 -->
+  <script src="assets/vendor/vue/vue.js"></script>
   <script>
     var app = new Vue({
       el: '#portfolio',
