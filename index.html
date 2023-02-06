@@ -228,13 +228,16 @@
         </div>
 
         <div class="row portfolio-container" data-aos="fade-up" data-aos-delay="100">
-          <div :class="'col-lg-4 col-md-6 portfolio-item filter-'+item.type" v-for="item in datalist">
+          <div :class="'col-lg-4 col-md-6 portfolio-item filter-'+item.type" v-for="(item,index) in reverseList">
             <div class="portfolio-wrap border border-dark border-3 shadow-lg bg-body-secondary"
-              style="border-radius: 15px;">
-              <h3 class="text-info">{{item.title}}</h3>
+              style="border-radius: 15px;padding: 5px;">
+              <div style="display: flex; justify-content: space-between;">
+                <h3 style="color: #149ddd;">{{item.title}}</h3>
+                <div v-if="!index"><span class="badge" style="background-color: #149ddd;">最新项目</span></div>
+              </div>              
               <br>
               <p class="text-muted">{{item.info}}</p>
-              <div class="text-secondary-emphasis">主要所用技术：<span class="text-info">{{item.tech}}</span></div>
+              <div class="text-secondary-emphasis">主要所用技术：<span style="color: #149ddd;">{{item.tech}}</span></div>
               <div class="portfolio-links">
                 <a :href=item.link title="More Details" style="width: 100%;"><i class="bx bx-link"
                     style="width: auto;"></i></a>
@@ -258,10 +261,6 @@
         &copy; JackFeng's <strong><span>Blog</span></strong>
       </div>
       <div class="credits">
-        <!-- All the links in the footer should remain intact. -->
-        <!-- You can delete the links only if you purchased the pro version. -->
-        <!-- Licensing information: https://bootstrapmade.com/license/ -->
-        <!-- Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/iportfolio-bootstrap-portfolio-websites-template/ -->
         Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
       </div>
     </div>
@@ -279,11 +278,17 @@
   <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
   <script src="assets/vendor/typed.js/typed.min.js"></script>
   <script src="assets/vendor/waypoints/noframework.waypoints.js"></script>
-  <!-- 开发环境版本，使用生产环境版本会产生跨域问题，暂未解决 -->
-  <script src="assets/vendor/vue/vue.js"></script>
+  <!-- 生产环境版本，提高页面加载速度 -->
+  <script src="assets/vendor/vue/vue.min.js"></script>
   <script>
     var app = new Vue({
       el: '#portfolio',
+      computed: {
+        //实现datalist逆序输出
+        reverseList(){
+          return this.datalist.reverse()
+        }
+      },
       data: {
         datalist: [
           {
@@ -378,18 +383,18 @@
             "type": "knowledge"
           },
           {
-            "title": "Vue学习",
-            "info": "这个栏目记录了作者学习vue的过程",
-            "tech": "html、vue、axios",
-            "link": "https://github.com/JackFen/Vue_study",
-            "type": "knowledge"
-          },
-          {
             "title": "某某CRM系统",
             "info": "该项目采用springBoot+vue架构，其包含使用token进行登录验证功能、用户管理、角色管理、菜单管理、系统日志",
             "tech": "springBoot、vue、Mysql、jwt",
             "link": "https://github.com/JackFen/CRM_system",
             "type": "project"
+          },
+          {
+            "title": "Vue学习",
+            "info": "这个栏目记录了作者学习vue的过程",
+            "tech": "html、vue、axios",
+            "link": "https://github.com/JackFen/Vue_study",
+            "type": "knowledge"
           },
         ]
       }
