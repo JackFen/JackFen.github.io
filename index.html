@@ -5,7 +5,7 @@
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-  <title>Welcome to my blog</title>
+  <title>In Memory of My Coding Youth</title>
   <meta content="" name="description">
   <meta content="" name="keywords">
 
@@ -32,6 +32,12 @@
 </head>
 
 <body>
+
+  <div class="rip">
+    <div class="scroll-text">
+      R.I.P — Here rests the youth I spent in code
+    </div>
+  </div>
 
   <!-- ======= Mobile nav toggle button ======= -->
   <i class="bi bi-list mobile-nav-toggle d-xl-none"></i>
@@ -258,7 +264,7 @@
   <footer id="footer">
     <div class="container">
       <div class="copyright">
-        Copyright &copy; 2020 - 2024
+        Copyright &copy; 2020 - {{ nowYear }}
       </div>
       <div class="copyright" style="margin-top: 5px;">
         <a href="http://www.stdu.edu.cn/">想要了解我的学校吗?</a>
@@ -281,7 +287,7 @@
   <!-- 生产环境版本，提高页面加载速度 -->
   <script src="assets/vendor/vue/vue.min.js"></script>
   <script>
-    var app = new Vue({
+    let app = new Vue({
       el: '#portfolio',
       computed: {
         //实现datalist逆序输出
@@ -404,6 +410,15 @@
             "type": "knowledge"
           },
         ]
+      }
+    })
+    // 不知道什么原因，不能在一个vue实例里面拿到footer节点，故只能出此下策，创建两个Vue实例
+    let endYearApp = new Vue({
+      el: '#footer',
+      computed: {
+        nowYear(){
+          return new Date().getFullYear()
+        }
       }
     })
   </script>
